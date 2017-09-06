@@ -57,6 +57,7 @@ class Habit < ApplicationRecord
   def random_times
     random_times = []
     counter = 0
+    return [reminder_time] if !end_time 
     span = self.end_time - self.reminder_time
     interval = span / reminder_frequency
     reminder_frequency.times do
