@@ -4,6 +4,14 @@ RSpec.describe HabitsController, type: :controller do
 
   let!(:user) { User.create!(user_identifier: '12345') }
 
+  describe 'GET#show' do
+    it "does a thing" do
+      habit = create(:habit)
+      get :show, params: habit #this is the problem
+      expect(assigns(:habit)).to eq habit
+    end
+  end
+
   describe '#create' do
 
     context "when the habit is invalid" do
