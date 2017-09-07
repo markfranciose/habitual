@@ -1,0 +1,5 @@
+this commit - 
+
+- use factory girl on model specs
+- add faker, capy, factory girl, selenium, launchy
+- set up factory for users, 

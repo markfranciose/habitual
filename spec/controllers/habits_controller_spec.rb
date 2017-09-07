@@ -4,12 +4,21 @@ RSpec.describe HabitsController, type: :controller do
 
   let!(:user) { User.create!(user_identifier: '12345') }
 
+  describe 'GET#show' do
+    it "does a thing" do
+      habit = create(:habit)
+      get :show, params: { user_id: user.id } #params: {id: habit.id} 
+      expect(assigns(:habit)).to eq habit
+    end
+  end
+
   describe '#create' do
 
     context "when the habit is invalid" do
 
-      xit "returns a status code of 400" do
-        expect(post :create).to route_to("habits#create")
+      xit "returns a status code of 422" do
+        post :create, params: { habit: {reminder_frequency: 1}}
+        expect(response.status).to eq 422
       end
 
       xit "returns a json object with errors in response body" do
