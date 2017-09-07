@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Habit, type: :model do
 
+  it "has a valid factory" do
+    expect(FactoryGirl.build(:habit)).to be_valid
+  end
+
     before(:each) do
       @user = User.create(user_identifier: "12345")
     end

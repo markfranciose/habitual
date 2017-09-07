@@ -7,7 +7,7 @@ RSpec.describe HabitsController, type: :controller do
   describe 'GET#show' do
     it "does a thing" do
       habit = create(:habit)
-      get :show, params: habit #this is the problem
+      get :show, params: { user_id: user.id } #params: {id: habit.id} 
       expect(assigns(:habit)).to eq habit
     end
   end
