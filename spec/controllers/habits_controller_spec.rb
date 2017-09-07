@@ -8,8 +8,9 @@ RSpec.describe HabitsController, type: :controller do
 
     context "when the habit is invalid" do
 
-      xit "returns a status code of 400" do
-        expect(post :create).to route_to("habits#create")
+      xit "returns a status code of 422" do
+        post :create, params: { habit: {reminder_frequency: 1}}
+        expect(response.status).to eq 422
       end
 
       xit "returns a json object with errors in response body" do

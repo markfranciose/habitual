@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe RandomsController do
+RSpec.describe RandomsController, type: :controller do
 	let(:user) { User.create(user_identifier: '12345')}
 
 	describe "POST #random" do
@@ -16,6 +16,7 @@ describe RandomsController do
 
 		context "invalid input" do
 			xit "returns status code 422" do
+				# post :
 			end
 
 			xit "returns a json object with errors" do
