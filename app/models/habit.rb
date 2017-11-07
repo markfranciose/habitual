@@ -36,7 +36,7 @@ class Habit < ApplicationRecord
   end
 
   def on_hot_streak
-    return true if self.reminders[-1].answer + self.reminders[-2].answer + self.reminders[-3].answer + self.reminders[-4].answer + self.reminders[-5].answer == "yesyesyesyesyes"
+		self.reminders[-5..-1].all? {|x| x.answer }
   end
 
   def get_stats
