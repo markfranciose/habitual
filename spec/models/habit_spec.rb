@@ -170,7 +170,10 @@ RSpec.describe Habit, type: :model do
       end
 
       xit "returns times within the correct intervals" do
-      end
+				reminder_time = Date.parse("01/02/2017")
+				@habit = Habit.create(name: "walk the pig", reminder_time: reminder_time, end_time: reminder_time + 1, reminder_frequency: 2, user: @user)
+				# expect() ensure that the time is between the two intervals... maybe run the test many times? how to check for false positive?
+			end
     end
   end
 
